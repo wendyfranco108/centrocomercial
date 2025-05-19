@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Alimentos para perro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background:#C9BD57;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 80%;
+      max-width: 600px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background-color: #fff;
+    }
+
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .carousel-item img {
+      width: 50%;
+      display: run-in;
+      border-radius: 10px;
+    }
+
+    .price-display {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #14BFB1;
+    }
+
+    .controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-30%);
+    }
+
+    .control-btn {
+      background-color: rgba(0,0,0,0.5);
+      border: none;
+      color: #0d6efd;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 30%;
+      margin: 0 10px;
+      font-size: 1.5em;
+    }
+	  button{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Verde */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #45a049;
+}
+	  <style>
+    tbody {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    table {
+      width: 550px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table td {
+      padding: 20px;
+      border: 1px solid #dddddd;
+      text-align: center;
+    }
+
+    table td:first-child {
+      font-size: 16px;
+      color: #333333;
+    }
+
+    table td:last-child {
+      font-size: 18px;
+      color: #0d6efd;
+      font-weight: bold;
+    }
+
+    .control-btn:hover {
+      background-color: rgba(0,0,0,0.7);
+    }
+
+    @media (max-width: 100px) {
+      .carousel-container {
+        width: 50%;
+      }
+  </style>
+</head>
+<body>
+
+  <h2 align="center">Alimentos para Perros "The Bone"</h2>
+
+  <div class="carousel-container" align="center">
+    <div class="carousel" id="carousel" align="center">
+      <div class="carousel-item" data-price="$35.00">
+       <img src="comida.jpg" width="400" height="400" alt=""/></div>
+      <div class="carousel-item" data-price="$50.00">
+      <img src="comida 1.jpg" width="400" height="400" alt=""/></div>
+      <div class="carousel-item" data-price="$40.00">
+       <img src="comida 2.jpg" width="400" height="400" alt=""/></div>
+    </div>
+    <div class="controls">
+      <button class="control-btn" id="prev">&#10094;</button>
+      <button class="control-btn" id="next">&#10095;</button>
+    </div>
+  </div>
+  <script>
+    const carousel = document.getElementById('carousel');
+    const items = document.querySelectorAll('.carousel-item');
+    const priceDisplay = document.getElementById('priceDisplay');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    let index = 0;
+	   
+
+    function updateCarousel() {
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      index = (index > 0) ? index - 1 : items.length - 1;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      index = (index < items.length - 1) ? index + 1 : 0;
+      updateCarousel();
+    });
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const price = item.getAttribute('data-price');
+        priceDisplay.textContent = `Precio: ${price}`;
+      });
+    });
+
+    // Auto-play functionality (optional)
+    setInterval(() => {
+      nextBtn.click();
+    }, 5000); // Change image every 5 seconds
+  </script>
+	<hr>
+	<table width="550" border="0" align="center">
+  <tbody>
+    <tr>
+      <td> Alimento balanceado para perros de todas las razas y edades. Formulado con proteínas de alta calidad, vitaminas esenciales y minerales que fortalecen su sistema inmune, mejoran la digestión y cuidan su pelaje. Nutrición completa para una vida activa, sana y feliz.
+	  <br> Dale a tu peludo una comida que no solo le encanta, sino que lo cuida desde adentro. Con carne real, arroz y vegetales seleccionados. Más energía, mejor digestión y un brillo en su pelaje que se nota.
+      <br> Horario de Atención: Lunes a Viernes: 9:00 a.m. – 6:00 p.m. - Sábados: 9:00 a.m. – 2:00 p.m. - Domingos y feriados: Cerrado</td>
+    </tr>
+    <tr>
+      <td>Precio OFERTA: Q30.OO</td>
+    </tr>
+  </tbody>
+</table>
+	<hr>
+	<a href="menu.html" ><button >Volver</button></a>
+</body>
+</html>
